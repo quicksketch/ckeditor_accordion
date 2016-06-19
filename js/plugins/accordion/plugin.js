@@ -2,6 +2,7 @@
  * @file
  * Functionality to enable accordion functionality in CKEditor.
  */
+
 (function () {
   'use strict';
 

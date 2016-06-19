@@ -2,6 +2,7 @@
  * @file
  * CKEditor Accordion functionality.
  */
+
 (function ($) {
   'use strict';
   Drupal.behaviors.ckeditorAccordion = {
