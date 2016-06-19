@@ -1,7 +1,9 @@
 /**
- * CKEditor Accordion functionality
+ * @file
+ * CKEditor Accordion functionality.
  */
 (function ($) {
+  'use strict';
   Drupal.behaviors.ckeditorAccordion = {
     attach: function (context, settings) {
 
@@ -57,7 +59,6 @@
           e.preventDefault();
         });
       }
-
     }
-  }
+  };
 })(jQuery);

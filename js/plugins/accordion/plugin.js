@@ -1,5 +1,6 @@
 /**
- * Functionality to enable accordion functionality in CKEditor
+ * @file
+ * Functionality to enable accordion functionality in CKEditor.
  */
 (function () {
   'use strict';
@@ -19,7 +20,7 @@
       // Add CSS for edition state.
       var cssPath = this.path + 'accordion.css';
       editor.on('mode', function () {
-        if (editor.mode == 'wysiwyg') {
+        if (editor.mode === 'wysiwyg') {
           this.document.appendStyleSheet(cssPath);
         }
       });
@@ -29,11 +30,12 @@
         if (editor.readOnly) {
           return;
         }
-        var command = editor.getCommand('addAccordionCmd'),
-          element = evt.data.path.lastElement && evt.data.path.lastElement.getAscendant('dl', true);
+        var command = editor.getCommand('addAccordionCmd');
+        var element = evt.data.path.lastElement && evt.data.path.lastElement.getAscendant('dl', true);
         if (element) {
           command.setState(CKEDITOR.TRISTATE_DISABLED);
-        } else {
+        }
+        else {
           command.setState(CKEDITOR.TRISTATE_OFF);
         }
       });
@@ -94,13 +96,14 @@
       editor.addCommand('removeAccordionTab', {
         exec: function (editor) {
           var element = editor.getSelection().getStartElement();
+          var a;
           if (element.getAscendant('dt', true)) {
-            var a = element.getAscendant('dt', true);
+            a = element.getAscendant('dt', true);
             a.getNext().remove();
             a.remove();
           }
           else {
-            var a = element.getAscendant('dd', true);
+            a = element.getAscendant('dd', true);
             if (a) {
               a.getPrevious().remove();
               a.remove();
