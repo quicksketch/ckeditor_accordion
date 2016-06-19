@@ -1,0 +1,59 @@
+/*
+	accordion tabs that have not been created using Javascript
+*/
+
+/* clearfix */
+.ckeditor-accordion-container > dl:before,
+.ckeditor-accordion-container > dl:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.ckeditor-accordion-container > dl:after {
+    clear: both;
+}
+
+/* CKEditor accordion */
+.ckeditor-accordion-container > dl,
+.ckeditor-accordion-container > dl dt,
+.ckeditor-accordion-container > dl dd {
+	box-sizing: border-box;
+}
+.ckeditor-accordion-container > dl {
+	position: relative;
+	border: 1px solid #0091EA;
+}
+
+/* label / tab */
+.ckeditor-accordion-container > dl dt {
+	padding: 10px 15px;
+	background-color: #00B0FF;
+	color: #fff;
+	background: ;
+	cursor: pointer;
+	-webkit-transition: background-color 300ms;
+	transition: background-color 300ms;
+	border-bottom: 1px solid #00a4ec;
+}
+
+.ckeditor-accordion-container > dl dt:hover {
+	background-color: #00a5ef;
+}
+.ckeditor-accordion-container > dl dt.active {
+	background-color: #0091EA;
+}
+
+.ckeditor-accordion-container > dl dt:last-of-type {
+	border-bottom: 0
+}
+
+/* contents */
+.ckeditor-accordion-container > dl dd {
+	display: none;
+	padding: 0 15px;
+	margin: 0;
+	will-change: height;
+}
+
+.ckeditor-accordion-container > dl dd:first-of-type {
+	display: block;
+}
