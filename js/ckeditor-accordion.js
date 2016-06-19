@@ -1,3 +1,6 @@
+/**
+ * CKEditor Accordion functionality
+ */
 (function ($) {
   Drupal.behaviors.ckeditorAccordion = {
     attach: function (context, settings) {
@@ -17,7 +20,7 @@
           $accordion.children('dd:first').addClass('active');
 
           // Turn the accordion tabs to links so that the content is accessible & can be traversed using keyboard.
-          $accordion.children('dt').each(function() {
+          $accordion.children('dt').each(function () {
             var $tab = $(this);
             var tabText = $tab.text().trim();
             var toggleClass = $tab.hasClass('active') ? ' active' : '';
@@ -34,10 +37,11 @@
           var $parent = $t.parent();
 
           // Clicking on open element, close it.
-          if($t.hasClass('active')) {
+          if ($t.hasClass('active')) {
             $t.removeClass('active');
             $t.next().slideUp();
-          } else {
+          }
+          else {
             // Remove active classes.
             $parent.children('dt.active').removeClass('active').children('a').removeClass('active');
             $parent.children('dd.active').slideUp(function () {

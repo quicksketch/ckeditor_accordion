@@ -1,4 +1,7 @@
-( function() {
+/**
+ * Functionality to enable accordion functionality in CKEditor
+ */
+(function () {
   'use strict';
 
   // Register plugin.
@@ -73,7 +76,7 @@
       });
       editor.addCommand('addAccordionTabAfter', {
         allowedContent: allowedContent,
-        
+
         exec: function (editor) {
           var element = editor.getSelection().getStartElement();
           var newHeader = new CKEDITOR.dom.element.createFromHtml('<dt>New accordion title</dt>');
@@ -98,10 +101,11 @@
           }
           else {
             var a = element.getAscendant('dd', true);
-            if(a) {
+            if (a) {
               a.getPrevious().remove();
               a.remove();
-            } else {
+            }
+            else {
               element.remove();
             }
           }
@@ -143,4 +147,4 @@
       }
     }
   });
-} )();
+})();

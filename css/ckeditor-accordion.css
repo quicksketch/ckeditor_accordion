@@ -77,9 +77,8 @@
 .ckeditor-accordion-container > dl dt > a {
   display: block;
   padding: 10px 15px 10px 50px;
-  background-color: #00B0FF;
+  background-color: #00b0ff;
   color: #fff;
-  background: ;
   cursor: pointer;
   -webkit-transition: background-color 300ms;
   transition: background-color 300ms;
