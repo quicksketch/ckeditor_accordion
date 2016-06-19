@@ -1,20 +1,19 @@
 ( function() {
   'use strict';
 
-  // Register plugin
+  // Register plugin.
   CKEDITOR.plugins.add('accordion', {
     hidpi: true,
-    //lang: 'en,en-au,en-ca,en-gb',
     icons: 'accordion',
     init: function (editor) {
-      // Add single button
+      // Add single button.
       editor.ui.addButton('Accordion', {
         command: 'addAccordionCmd',
         icon: this.path + 'icons/accordion.png',
         label: Drupal.t('Insert accordion')
       });
 
-      // Add CSS for edition state
+      // Add CSS for edition state.
       var cssPath = this.path + 'accordion.css';
       editor.on('mode', function () {
         if (editor.mode == 'wysiwyg') {
@@ -22,21 +21,23 @@
         }
       });
 
-      // Prevent nesting DLs by disabling button
+      // Prevent nesting DLs by disabling button.
       editor.on('selectionChange', function (evt) {
-        if (editor.readOnly)
+        if (editor.readOnly) {
           return;
+        }
         var command = editor.getCommand('addAccordionCmd'),
           element = evt.data.path.lastElement && evt.data.path.lastElement.getAscendant('dl', true);
-        if (element)
+        if (element) {
           command.setState(CKEDITOR.TRISTATE_DISABLED);
-        else
+        } else {
           command.setState(CKEDITOR.TRISTATE_OFF);
+        }
       });
 
       var allowedContent = 'dl dd dt(!ckeditor-accordion)';
 
-      // Command to insert initial structure
+      // Command to insert initial structure.
       editor.addCommand('addAccordionCmd', {
         allowedContent: allowedContent,
 
@@ -52,7 +53,7 @@
         }
       });
 
-      // Other command to manipulate tabs
+      // Other command to manipulate tabs.
       editor.addCommand('addAccordionTabBefore', {
         allowedContent: allowedContent,
 
@@ -107,7 +108,7 @@
         }
       });
 
-      // Context menu
+      // Context menu.
       if (editor.contextMenu) {
         editor.addMenuGroup('accordionGroup');
         editor.addMenuItem('accordionTabBeforeItem', {

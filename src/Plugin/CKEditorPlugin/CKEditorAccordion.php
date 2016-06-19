@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Contains \Drupal\ckeditor_accordion\Plugin\CKEditorPlugin\CKEditorAccordion.
@@ -20,6 +19,7 @@ use Drupal\editor\Entity\Editor;
  * )
  */
 class CKEditorAccordion extends CKEditorPluginBase {
+
   /**
    * {@inheritdoc}
    */
@@ -32,8 +32,7 @@ class CKEditorAccordion extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getDependencies(Editor $editor) {
-    return array(
-    );
+    return array();
   }
 
   /**
@@ -55,4 +54,5 @@ class CKEditorAccordion extends CKEditorPluginBase {
       ),
     );
   }
+
 }
