@@ -1,0 +1,9 @@
+name = CKEditor accordion
+description = Adds a CKEditor accordion plugin
+package = user-interface
+core = 7.x
+
+dependencies[] = ckeditor
+
+stylesheets[all][] = css/ckeditor-accordion.css
+scripts[] = js/ckeditor-accordion.js

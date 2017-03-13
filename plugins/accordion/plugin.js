@@ -50,10 +50,10 @@
         exec: function (editor) {
           var dl = new CKEDITOR.dom.element.createFromHtml(
             '<dl class="ckeditor-accordion">' +
-              '<dt>Accordion title 1</dt>' +
-              '<dd><p>Accordion content 1.</p></dd>' +
-              '<dt>Accordion title 2</dt>' +
-              '<dd><p>Accordion content 2.</p></dd>' +
+            '<dt>Accordion title 1</dt>' +
+            '<dd><p>Accordion content 1.</p></dd>' +
+            '<dt>Accordion title 2</dt>' +
+            '<dd><p>Accordion content 2.</p></dd>' +
             '</dl>');
           editor.insertElement(dl);
         }
