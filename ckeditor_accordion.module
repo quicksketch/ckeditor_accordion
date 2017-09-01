@@ -12,7 +12,7 @@ function ckeditor_accordion_ckeditor_plugin() {
       // Description of the plugin - it would be displayed in the plugins management section of profile settings.
       'desc' => t('CKEditor Accordion - A plugin to easily create accordions'),
       // The full URL to the CKEditor plugins directory, with the trailing slash.
-      'path' => base_path() . drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/',
+      'path' => ckeditor_base_path('local') . '/' . drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/',
       'buttons' => array(
         'Accordion' => array(
           // Path to an icon relative to the plugins folder.
