@@ -4,6 +4,7 @@ package = user-interface
 core = 7.x
 
 dependencies[] = ckeditor
+dependencies[] = jquery_update
 
 stylesheets[all][] = css/ckeditor-accordion.css
 scripts[] = js/ckeditor-accordion.js

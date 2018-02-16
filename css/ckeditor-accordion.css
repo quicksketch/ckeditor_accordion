@@ -37,6 +37,7 @@
   z-index: 1;
   top: calc(50% - 1px);
   left: 11px;
+  box-sizing: border-box;
 }
 .ckeditor-accordion-container > dl dt > .ckeditor-accordion-toggle:before,
 .ckeditor-accordion-container > dl dt > .ckeditor-accordion-toggle:after {

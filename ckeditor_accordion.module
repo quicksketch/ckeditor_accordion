@@ -23,3 +23,22 @@ function ckeditor_accordion_ckeditor_plugin() {
     )
   );
 }
+
+/**
+ * Implements hook_editor_ckeditor_plugins().
+ */
+function ckeditor_accordion_editor_ckeditor_plugins() {
+  return array(
+    'accordion' => array(
+      'path' => drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion',
+      'file' => 'plugin.js',
+      'css' => array(drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/accordion.css'),
+      'buttons' => array(
+        'Accordion' => array(
+          'label' => t('Accordion'),
+          'image' => drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/icons/accordion.png',
+        )
+      )
+    )
+  );
+}
