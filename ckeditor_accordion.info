@@ -8,3 +8,4 @@ dependencies[] = jquery_update
 
 stylesheets[all][] = css/ckeditor-accordion.css
 scripts[] = js/ckeditor-accordion.js
+configure = admin/settings/ckeditor_accordion

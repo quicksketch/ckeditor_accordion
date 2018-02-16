@@ -58,20 +58,20 @@
 }
 .ckeditor-accordion-container > dl dt > .ckeditor-accordion-toggle:before {
   left: 13px;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 .ckeditor-accordion-container > dl dt > .ckeditor-accordion-toggle:after {
   right: 13px;
   left: auto;
-  transform: rotate(-45deg);
-}
-.ckeditor-accordion-container > dl dt.active > .ckeditor-accordion-toggle:before {
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-}
-.ckeditor-accordion-container > dl dt.active > .ckeditor-accordion-toggle:after {
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+.ckeditor-accordion-container > dl dt.active > .ckeditor-accordion-toggle:before {
+  transform: rotate(45deg);
+}
+.ckeditor-accordion-container > dl dt.active > .ckeditor-accordion-toggle:after {
+  transform: rotate(-45deg);
 }
 
 
@@ -103,8 +103,4 @@
   padding: 0 15px;
   margin: 0;
   will-change: height;
-}
-
-.ckeditor-accordion-container > dl dd:first-of-type {
-  display: block;
 }

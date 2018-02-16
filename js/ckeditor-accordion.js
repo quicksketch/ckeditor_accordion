@@ -19,8 +19,12 @@
           }
 
           // The first one is the correct one.
-          $accordion.children('dt:first').addClass('active');
-          $accordion.children('dd:first').addClass('active');
+          if (typeof Drupal.settings.ckeditor_accordion == 'undefined' ||
+             (typeof Drupal.settings.ckeditor_accordion != 'undefined' && Drupal.settings.ckeditor_accordion.collapseAll != 1)) {
+            $accordion.children('dt:first').addClass('active');
+            $accordion.children('dd:first').addClass('active');
+            $accordion.children('dd:first').css('display', 'block');
+          }
 
           // Turn the accordion tabs to links so that the content is accessible & can be traversed using keyboard.
           $accordion.children('dt').each(function () {
@@ -32,6 +36,9 @@
 
           // Wrap the accordion in a div element so that quick edit function shows the source correctly.
           $accordion.addClass('styled').removeClass('ckeditor-accordion').wrap('<div class="ckeditor-accordion-container"></div>');
+
+          // Fire an event so other modules know when the accordion has been created.
+          $accordion.trigger('ckeditorAccordionAttached');
         });
 
         // Add click event to body once because quick edits & ajax calls might reset the HTML.
