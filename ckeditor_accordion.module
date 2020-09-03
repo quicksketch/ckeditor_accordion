@@ -42,7 +42,7 @@ function ckeditor_accordion_menu() {
     'description' => 'Adminster CKEditor Accordion configuration',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('ckeditor_accordion_admin'),
-    'access arguments' => array('administer ckeditor'),
+    'access arguments' => array('administer filters'),
     'type' => MENU_NORMAL_ITEM,
    );
 
