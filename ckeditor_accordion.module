@@ -67,9 +67,9 @@ function ckeditor_accordion_admin() {
 }
 
 /**
- * Implements hook_page_build().
+ * Implements hook_preprocess_HOOK().
  */
-function ckeditor_accordion_page_build(&$page) {
+function ckeditor_accordion_preprocess_page(&$variables) {
   $config = config_get('ckeditor_accordion.settings', 'ckeditor_accordion_collapsed');
   if ($config) {
     backdrop_add_js(array('ckeditor_accordion' => array('collapseAll' => 1)), array('type' => 'setting'));
