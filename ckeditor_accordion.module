@@ -54,11 +54,12 @@ function ckeditor_accordion_menu() {
  */
 function ckeditor_accordion_admin() {
   $form = array();
+  $form['#config'] = 'ckeditor_accordion.settings';
 
   $form['ckeditor_accordion_collapsed'] = array(
     '#type' => 'checkbox',
     '#title' => t('Collapse all tabs by default'),
-    '#default_value' => variable_get('ckeditor_accordion_collapsed', 0),
+    '#default_value' => config_get('ckeditor_accordion.settings', 'ckeditor_accordion_collapsed'),
     '#description' => t("The maximum number of links to display in the block."),
   );
 
@@ -69,7 +70,7 @@ function ckeditor_accordion_admin() {
  * Implements hook_page_build().
  */
 function ckeditor_accordion_page_build(&$page) {
-  $config = variable_get('ckeditor_accordion_collapsed', 0);
+  $config = config_get('ckeditor_accordion.settings', 'ckeditor_accordion_collapsed');
   if ($config) {
     backdrop_add_js(array('ckeditor_accordion' => array('collapseAll' => 1)), array('type' => 'setting'));
   }
