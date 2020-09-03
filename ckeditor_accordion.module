@@ -5,47 +5,28 @@
  */
 
 /**
- * Implements hook_ckeditor_plugin().
- * Hook to register the CKEditor plugin - it would appear in the plugins list on the profile setting page.
+ * Implements hook_ckeditor_plugins().
+ *
+ * Register the CKEditor plugin - it appears in the plugins list of content
+ * format settings.
  */
-function ckeditor_accordion_ckeditor_plugin() {
+function ckeditor_accordion_ckeditor_plugins() {
+  $plugin_path = backdrop_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/';
   return array(
     'accordion' => array(
-      // Name of the plugin used to write it.
-      'name' => 'accordion',
-      // Description of the plugin - it would be displayed in
-      // the plugins management section of profile settings.
-      'desc' => t('CKEditor Accordion - A plugin to easily create accordions'),
-      // The full URL to the CKEditor plugins directory,
-      // with the trailing slash.
-      'path' => ckeditor_base_path('local') . '/' . drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/',
-      'buttons' => array(
-        'Accordion' => array(
-          // Path to an icon relative to the plugins folder.
-          'icon' => 'icons/accordion.png',
-          'label' => 'Accordion',
-        ),
-      ),
-    ),
-  );
-}
-
-/**
- * Implements hook_editor_ckeditor_plugins().
- */
-function ckeditor_accordion_editor_ckeditor_plugins() {
-  return array(
-    'accordion' => array(
-      'path' => drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion',
+      'path' => $plugin_path,
       'file' => 'plugin.js',
-      'css' => array(drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/accordion.css'),
+      'css' => array($plugin_path . '/accordion.css'),
       'buttons' => array(
         'Accordion' => array(
           'label' => t('Accordion'),
-          'image' => drupal_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/icons/accordion.png',
+          'image' => $plugin_path . '/icons/accordion.png',
         )
-      )
-    )
+      ),
+      'required_html' => array(
+        array('dl', 'dd', 'dt'),
+      ),
+    ),
   );
 }
 
@@ -59,7 +40,7 @@ function ckeditor_accordion_menu() {
   $items['admin/config/content/ckeditor_accordion'] = array(
     'title' => 'Administer CKEditor Accordion',
     'description' => 'Adminster CKEditor Accordion configuration',
-    'page callback' => 'drupal_get_form',
+    'page callback' => 'backdrop_get_form',
     'page arguments' => array('ckeditor_accordion_admin'),
     'access arguments' => array('administer ckeditor'),
     'type' => MENU_NORMAL_ITEM,
@@ -90,6 +71,6 @@ function ckeditor_accordion_admin() {
 function ckeditor_accordion_page_build(&$page) {
   $config = variable_get('ckeditor_accordion_collapsed', 0);
   if ($config) {
-    drupal_add_js(array('ckeditor_accordion' => array('collapseAll' => 1)), array('type' => 'setting'));
+    backdrop_add_js(array('ckeditor_accordion' => array('collapseAll' => 1)), array('type' => 'setting'));
   }
 }

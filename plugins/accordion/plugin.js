@@ -15,7 +15,7 @@
       editor.ui.addButton('Accordion', {
         command: 'addAccordionCmd',
         icon: this.path + 'icons/accordion.png',
-        label: Drupal.t('Insert accordion')
+        label: Backdrop.t('Insert accordion')
       });
 
       // Add CSS for edition state.
@@ -120,19 +120,19 @@
       if (editor.contextMenu) {
         editor.addMenuGroup('accordionGroup');
         editor.addMenuItem('accordionTabBeforeItem', {
-          label: Drupal.t('Add accordion tab before'),
+          label: Backdrop.t('Add accordion tab before'),
           icon: this.path + 'icons/accordion.png',
           command: 'addAccordionTabBefore',
           group: 'accordionGroup'
         });
         editor.addMenuItem('accordionTabAfterItem', {
-          label: Drupal.t('Add accordion tab after'),
+          label: Backdrop.t('Add accordion tab after'),
           icon: this.path + 'icons/accordion.png',
           command: 'addAccordionTabAfter',
           group: 'accordionGroup'
         });
         editor.addMenuItem('removeAccordionTab', {
-          label: Drupal.t('Remove accordion tab'),
+          label: Backdrop.t('Remove accordion tab'),
           icon: this.path + 'icons/accordion.png',
           command: 'removeAccordionTab',
           group: 'accordionGroup'

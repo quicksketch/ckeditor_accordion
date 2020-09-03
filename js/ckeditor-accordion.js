@@ -5,7 +5,7 @@
 
 (function ($) {
   'use strict';
-  Drupal.behaviors.ckeditorAccordion = {
+  Backdrop.behaviors.ckeditorAccordion = {
     attach: function (context, settings) {
 
       // Create accordion functionality if the required elements exist is available.
@@ -19,8 +19,8 @@
           }
 
           // The first one is the correct one.
-          if (typeof Drupal.settings.ckeditor_accordion == 'undefined' ||
-             (typeof Drupal.settings.ckeditor_accordion != 'undefined' && Drupal.settings.ckeditor_accordion.collapseAll != 1)) {
+          if (typeof Backdrop.settings.ckeditor_accordion == 'undefined' ||
+             (typeof Backdrop.settings.ckeditor_accordion != 'undefined' && Backdrop.settings.ckeditor_accordion.collapseAll != 1)) {
             $accordion.children('dt:first').addClass('active');
             $accordion.children('dd:first').addClass('active');
             $accordion.children('dd:first').css('display', 'block');
