@@ -51,6 +51,17 @@ function ckeditor_accordion_menu() {
 }
 
 /**
+ * Implements hook_config_info().
+ */
+function ckeditor_accordion_config_info() {
+  $prefixes['ckeditor_accordion.settings'] = array(
+    'label' => t('CKEditor Accordion settings'),
+    'group' => t('Configuration'),
+  );
+  return $prefixes;
+}
+
+/**
  * Create settings page for the module.
  */
 function ckeditor_accordion_admin() {
