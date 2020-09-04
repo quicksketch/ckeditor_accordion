@@ -17,7 +17,7 @@ Bugs and Feature requests should be reported in the [Issue Queue](https://github
 
 ## Credits
 
-- Ported to Backdrop by Indigoxela
+- Ported to Backdrop by [Indigoxela](https://github.com/indigoxela)
 - Originally developed for Drupal by [Juhani Väätäjä (j-vee)](https://www.drupal.org/u/j-vee)
 
 ## License
