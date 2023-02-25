@@ -13,7 +13,7 @@ Bugs and Feature requests should be reported in the [Issue Queue](https://github
 
 ## Current Maintainers
 
-- Seeking maintainers
+- [Indigoxela](https://github.com/indigoxela)
 
 ## Credits
 
