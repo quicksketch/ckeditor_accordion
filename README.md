@@ -14,6 +14,7 @@ Bugs and Feature requests should be reported in the [Issue Queue](https://github
 ## Current Maintainers
 
 - [Indigoxela](https://github.com/indigoxela)
+- Seeking new maintainer
 
 ## Credits
 
