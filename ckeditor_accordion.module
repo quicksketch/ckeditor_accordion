@@ -2,41 +2,67 @@
 
 /**
  * @file
- * Adds accordion plugin to CKEditor.
+ * Adds accordion plugin to CKEditor 5.
  */
 
 /**
- * Implements hook_ckeditor_plugins().
+ * Implements hook_ckeditor5_plugins().
  *
  * Register the CKEditor plugin - it appears in the plugins list of content
  * format settings.
  */
-function ckeditor_accordion_ckeditor_plugins() {
-  $plugin_path = backdrop_get_path('module', 'ckeditor_accordion') . '/plugins/accordion/';
-  return array(
-    'accordion' => array(
-      'path' => $plugin_path,
-      'file' => 'plugin.js',
-      'css' => array($plugin_path . '/accordion.css'),
-      'buttons' => array(
-        'Accordion' => array(
-          'label' => t('Accordion'),
-          'image' => $plugin_path . '/icons/accordion.png',
-          'dependencies' => array('contextmenu'),
+function ckeditor_accordion_ckeditor5_plugins() {
+  $module_path = backdrop_get_path('module', 'ckeditor_accordion');
+  $plugins['accordion.Accordion'] = array(
+    'library' => array('ckeditor_accordion', 'ckeditor_accordion.plugin'),
+    'buttons' => array(
+      'accordion' => array(
+        'label' => t('Accordion'),
+        'image' => $module_path. '/plugins/accordion/icons/accordion.svg',
+        'required_html' => array(
+          '<dl class="ckeditor-accordion">',
+          '<dd>',
+          '<dt>',
+          '<p>',
         ),
-      ),
-      'required_html' => array(
-        array('dl', 'dd', 'dt'),
       ),
     ),
   );
+
+  return $plugins;
+}
+
+/**
+ * Implements hook_library_info().
+ */
+function ckeditor_accordion_library_info() {
+  $module_path = backdrop_get_path('module', 'ckeditor_accordion');
+  $libraries['ckeditor_accordion.plugin'] = array(
+    'title' => 'CKEditor plugin to convert basic HTML tags to preferred tags.',
+    'version' => '2.0',
+    'css' => array(
+      $module_path . '/plugins/accordion/accordion.css' => array(),
+    ),
+    'js' => array(
+      $module_path . '/plugins/accordion/accordion.js' => array(),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Implements hook_ckeditor5_config_alter().
+ */
+function ckeditor_accordion_ckeditor5_config_alter(array &$settings, $format) {
+  // dsm($settings);
+  // $settings['toolbar']['shouldNotGroupWhenFull'] = FALSE;
+  // unset($settings['toolbar']['shouldNotGroupWhenFull']);
 }
 
 /**
  * Implements hook_menu().
  */
 function ckeditor_accordion_menu() {
-
   $items = array();
 
   $items['admin/config/content/ckeditor_accordion'] = array(
